@@ -1,0 +1,209 @@
+.login-wrapper {
+  border: 1px solid rgb(148, 142, 142);
+  margin: 10% 10%;
+  padding: 20px;
+  background-color: #dee6ec;
+  border-radius: 20px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+.btn-submit {
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(
+    90deg,
+    rgb(8, 4, 90) 0%,
+    rgb(43, 26, 155) 25%,
+    rgb(53, 194, 223) 100%
+  );
+}
+
+Form input {
+  border-radius: 15px;
+  background-color: #d1dce6;
+  color: black;
+  border: 1px solid #7695ad;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.login-head {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+}
+
+.form-label {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.loginp {
+  margin-top: 10px;
+  font-size: small;
+}
+.loginp a {
+  text-decoration: none;
+}
+.signup-p {
+  height: 530px;
+  font-size: medium;
+}
+.full-page {
+  margin: 20px 5%;
+  font-size: medium;
+}
+
+.table-box {
+  border: 2px sollid rgb(10, 10, 10);
+  margin-top: 50px;
+}
+.topbox {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mr-10 {
+  margin-right: 30px;
+}
+.me-auto {
+  margin-left: 70px;
+}
+
+.active {
+  color: rgb(20, 20, 20);
+  border-bottom: 5px solid rgb(23, 24, 23);
+  margin-bottom: -5px;
+}
+.brand {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: x-large;
+  font-weight: 500;
+}
+.userlogo {
+  margin-right: 5px;
+  margin-top: -8px;
+  color: rgba(17, 17, 17, 0.9);
+}
+.topicon {
+  margin-top: -4px;
+  margin-right: 5px;
+}
+.card-wrapper {
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  z-index: -1000;
+}
+.card-wrapper:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.profile {
+  border-radius: 50px;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+.alert-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.delete-alert {
+  max-width: 400px;
+  width: 70%;
+  z-index: 1000;
+}
+.view-submit {
+  border: 2px solid rgb(207, 207, 207, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: medium;
+}
+.view-submit h5 {
+  margin-left: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #4a5258;
+}
+.view-submit p {
+  margin-left: 35px;
+}
+.view-submit button {
+  margin-left: 20px;
+}
+.create-form {
+  padding: 30px;
+  margin: 20px;
+}
+.form {
+  padding: 10px 20px;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+}
+.form-label {
+  margin-top: 15px;
+}
+.page-head {
+  margin-top: -40px;
+}
+.card-wrapper {
+  background-color: antiquewhite;
+}
+
+@media only screen and (max-width: 500px) {
+  .table {
+    font-size: xx-small;
+    height: 200px;
+  }
+  .tbody tr {
+    height: 50px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .description {
+    width: 50px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    column-width: 100px;
+  }
+  .description:hover {
+    white-space: inherit;
+  }
+  .Technologies {
+    width: 50px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+  .Technologies:hover {
+    white-space: inherit;
+  }
+  .status-icon {
+    font-size: x-small;
+    color: yellow;
+  }
+  .profile {
+    border-radius: 50px;
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+  }
+  .view-submit h5 {
+    font-size: medium;
+  }
+  .view-submit p {
+    margin-left: 35px;
+    font-size: small;
+  }
+  .full-page {
+    font-size: small;
+  }
+}
