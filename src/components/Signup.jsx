@@ -50,7 +50,7 @@ function Signup() {
   });
 
   return (
-    <div className="login-wrapper mt-4 pt-2 signup-p">
+    <div className="login-wrapper  pt-2 signup-p">
       <h1 className="login-head" style={{ textAlign: "center" }}>
         {" "}
         Sign Up{" "}

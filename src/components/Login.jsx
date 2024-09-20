@@ -37,7 +37,7 @@ function Login() {
 
   return (
     <div className="container-fluid">
-      <div className="login-wrapper mt-5 pt-5">
+      <div className="login-wrapper  pt-5">
         <h1 className="login-head" style={{ textAlign: "center" }}>
           {" "}
           Login{" "}

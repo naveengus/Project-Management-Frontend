@@ -1,6 +1,6 @@
 .login-wrapper {
   border: 1px solid rgb(148, 142, 142);
-  margin: 10% 10%;
+  margin: 20% 10%;
   padding: 20px;
   background-color: #dee6ec;
   border-radius: 20px;
@@ -43,7 +43,7 @@ Form input {
   text-decoration: none;
 }
 .signup-p {
-  height: 530px;
+  height: 600px;
   font-size: medium;
 }
 .full-page {
