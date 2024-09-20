@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { useNavigate } from "react-router-dom";
-import useLogOut from "../../hooks/useLogout";
+import useLogOut from "../../hooks/useLogout.jsx";
 import { Button } from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
 import HomeIcon from "@mui/icons-material/Home";

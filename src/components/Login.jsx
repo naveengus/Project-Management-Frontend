@@ -5,7 +5,7 @@ import AxiosServise from "../utils/AxiosServise";
 import ApiRoutes from "../utils/ApiRoutes";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import useLogOut from "../hooks/useLogOut";
+import useLogOut from "../hooks/useLogout.jsx";
 
 function Login() {
   let [email, setEmail] = useState("");
