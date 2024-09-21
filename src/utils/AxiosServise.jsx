@@ -15,6 +15,7 @@ AxiosService.interceptors.request.use(
     let token = sessionStorage.getItem("token");
     if (token && config.authenticate) {
       config.headers.Authorization = `Bearer ${token}`; // Attach token to headers if present
+      console.log("Token being sent:", token); // Log the token
     }
     return config;
   },
@@ -35,10 +36,11 @@ AxiosService.interceptors.response.use(
       if (response.status === 401) {
         logout(); // Call the logout utility function when status is 401
       } else {
+        console.error(`Error ${response.status}:`, response.data); // Log specific errors
         throw response.data; // Throw any other errors
       }
     } else {
-      console.error("Network error or no response");
+      console.error("Network error or no response:", error); // More details about the error
       throw error; // Handle network errors or lack of response
     }
   }
