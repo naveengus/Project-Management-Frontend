@@ -1,44 +1,47 @@
 import axios from "axios";
-import { config } from "dotenv";
+import { logout } from "../utils/logoutUtils"; // Import the logout function
 
-const AxiosServise = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+// Create an axios instance
+const AxiosService = axios.create({
+  baseURL: import.meta.env.VITE_BASE_URL, // VITE environment variable for base URL
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-AxiosServise.interceptors.request.use(
+// Request interceptor to handle token-based authentication
+AxiosService.interceptors.request.use(
   (config) => {
     let token = sessionStorage.getItem("token");
-    if (token && config.authenticate)
-      config.headers.Authorization = `Bearer ${token}`;
+    if (token && config.authenticate) {
+      config.headers.Authorization = `Bearer ${token}`; // Attach token to headers if present
+    }
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-AxiosServise.interceptors.response.use(
+// Response interceptor to handle responses and errors
+AxiosService.interceptors.response.use(
   (response) => {
-    return response.data;
+    console.log(response); // Optional: Log the response
+    return response.data; // Return only the response data
   },
   (error) => {
     const { response } = error;
 
-    if (response && response.status === 401) {
-      console.log("Unauthorized access, redirecting to login...");
-      if (typeof window !== "undefined") {
-        window.location.assign("/login"); // Redirect to login
+    // Handle specific errors like 401 (Unauthorized)
+    if (response) {
+      if (response.status === 401) {
+        logout(); // Call the logout utility function when status is 401
+      } else {
+        throw response.data; // Throw any other errors
       }
-    } else if (!response) {
-      console.log(
-        "No response received from the server. Possible network issue."
-      );
     } else {
-      console.log("Error: ", response.data || error.message);
-      throw response.data || error.message;
+      console.error("Network error or no response");
+      throw error; // Handle network errors or lack of response
     }
   }
 );
 
-export default AxiosServise;
+export default AxiosService;
