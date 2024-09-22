@@ -43,11 +43,11 @@ Form input {
   text-decoration: none;
 }
 .signup-p {
-  height: 600px;
+  height: 630px;
   font-size: medium;
 }
 .full-page {
-  margin: 20px 5%;
+  margin: 20px 2%;
   font-size: medium;
 }
 
@@ -160,32 +160,9 @@ Form input {
 @media only screen and (max-width: 500px) {
   .table {
     font-size: xx-small;
-    height: 200px;
+    height: 80px;
   }
-  .tbody tr {
-    height: 50px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-  .description {
-    width: 50px;
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    column-width: 100px;
-  }
-  .description:hover {
-    white-space: inherit;
-  }
-  .Technologies {
-    width: 50px;
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-  }
-  .Technologies:hover {
-    white-space: inherit;
-  }
+
   .status-icon {
     font-size: x-small;
     color: yellow;

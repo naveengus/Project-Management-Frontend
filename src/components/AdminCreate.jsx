@@ -3,6 +3,7 @@ import AxiosServise from "../utils/AxiosServise";
 import ApiRoutes from "../utils/ApiRoutes";
 import toast from "react-hot-toast";
 import { Form, Button, Container, Row, Col, ListGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const AdminCreate = () => {
   const [projectTitle, setProjectTitle] = useState("");
@@ -13,6 +14,7 @@ const AdminCreate = () => {
   const [assignedUsers, setAssignedUsers] = useState("");
   const [users, setUsers] = useState([]);
   const [submissionDetails, setSubmissionDetails] = useState("");
+  let navigate = useNavigate();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -49,6 +51,7 @@ const AdminCreate = () => {
         }
       );
       toast.success("Project created successfully!!");
+      navigate("/Profile");
     } catch (error) {
       console.error("Error during project creation:", error);
       toast.error("Failed to create project!!");

@@ -96,15 +96,15 @@ function Profile() {
           </Alert>
         </div>
       )}
-      <div className="row m-2 mt-3 profile-box ">
+      <div className="row m-1 mt-3 profile-box ">
         <div className="col-12 w-100  ">
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>#</th>
-                <th className="col-5">ProjectTitle</th>
-                <th className="col-3">Status</th>
-                <th className="col-3">Action</th>
+                <th>ProjectTitle</th>
+                <th>Status</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>

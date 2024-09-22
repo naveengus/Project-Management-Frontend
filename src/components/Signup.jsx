@@ -63,6 +63,7 @@ function Signup() {
             placeholder="First Name"
             name="firstName"
             type="text"
+            autoComplete="given-name"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.firstName}
@@ -78,6 +79,7 @@ function Signup() {
             placeholder="Last Name"
             name="lastName"
             type="text"
+            autoComplete="family-name"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.lastName}
@@ -92,6 +94,7 @@ function Signup() {
           <Form.Control
             name="email"
             type="email"
+            autoComplete="email"
             placeholder="Enter email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -108,6 +111,7 @@ function Signup() {
             placeholder="Password"
             name="password"
             type="password"
+            autoComplete="new-password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
@@ -119,14 +123,18 @@ function Signup() {
 
         <Form.Group className="mb-2" controlId="formBasicrole">
           <Form.Label className="form-label">Role</Form.Label>
-          <Form.Control
-            placeholder="Role"
+          <Form.Select
             name="role"
-            type="text"
+            aria-label="Default select example"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.role}
-          />
+            autoComplete="role"
+          >
+            <option value="" label="Open this select Role" />
+            <option value="1">Admin</option>
+            <option value="2">User</option>
+          </Form.Select>
+
           {formik.touched.role && formik.errors.role ? (
             <div>{formik.errors.role}</div>
           ) : null}

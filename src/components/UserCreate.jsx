@@ -40,7 +40,6 @@ function UserCreate() {
       setProjects(filteredProjects);
       // toast.success(projectMessage);
     } catch (error) {
-      console.log(error);
       toast.error(error.message || "Internal Server Error");
     }
   };

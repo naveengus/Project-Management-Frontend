@@ -42,35 +42,6 @@ function ViewSubmitD() {
     ),
   };
 
-  const buttons = [
-    {
-      label: "Approve",
-      variant: "success",
-      status: ["Pending", "Rejected"],
-      to: "Approved",
-    },
-    {
-      label: "Reject",
-      variant: "danger",
-      status: ["Pending", "Approved"],
-      to: "Rejected",
-    },
-  ];
-
-  const changeStatus = async (newStatus) => {
-    try {
-      const { message } = await AxiosServise.put(
-        `${ApiRoutes.CHANGE_STATUS_USER.path}/${projectId}`,
-        { status: newStatus },
-        { authenticate: ApiRoutes.CHANGE_STATUS_USER.auth }
-      );
-      toast.success(message);
-      getData();
-    } catch (error) {
-      toast.error(error.message || "Internal Server Error");
-    }
-  };
-
   const getData = async () => {
     try {
       let response;
@@ -135,23 +106,6 @@ function ViewSubmitD() {
         <p>
           <span style={{ color: color[status] }}>{icon[status]}</span> {status}
         </p>
-        {role === "Admin" && (
-          <div>
-            <h5>Actions</h5>
-            {buttons.map((button, index) =>
-              button.status.includes(status) ? (
-                <Button
-                  key={index}
-                  variant={button.variant}
-                  className="mr-2 btn btn-sm"
-                  onClick={() => changeStatus(button.to)}
-                >
-                  {button.label}
-                </Button>
-              ) : null
-            )}
-          </div>
-        )}
       </Container>
     </div>
   );

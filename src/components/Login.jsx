@@ -16,7 +16,7 @@ function Login() {
   const handleSubmit = async () => {
     try {
       let { message, token, role, userId } = await AxiosServise.post(
-        `${ApiRoutes.LOGIN.path}`, // Ensure this is an endpoint on your server
+        `${ApiRoutes.LOGIN.path}`,
         { email, password },
         { authenticate: ApiRoutes.LOGIN.auth }
       );
@@ -50,6 +50,7 @@ function Login() {
               <Form.Control
                 type="email"
                 placeholder="Enter email"
+                autoComplete="username"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
@@ -59,6 +60,7 @@ function Login() {
               <Form.Control
                 type="password"
                 placeholder="Password"
+                autoComplete="current-password"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>

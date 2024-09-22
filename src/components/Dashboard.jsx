@@ -44,7 +44,6 @@ function Dashboard() {
       //  setProject(filteredData);
       setProject(data);
     } catch (error) {
-      console.log(error);
       toast.error(error.message || "Internal Server Error");
     }
   };
@@ -54,7 +53,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div classname="container ">
+    <div className="container ">
       <div className="row m-1 mt-3">
         <div className="col-12  w-100">
           <Table striped bordered hover>
@@ -73,7 +72,7 @@ function Dashboard() {
                   <tr
                     key={projects.projectId}
                     onClick={() =>
-                      navigate(`/ViewSubmit/${projects.projectId}`)
+                      navigate(`/ViewProject/${projects.projectId}`)
                     }
                   >
                     <td>{i + 1}</td>
