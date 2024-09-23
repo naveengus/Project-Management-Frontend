@@ -131,8 +131,8 @@ function Signup() {
             autoComplete="role"
           >
             <option value="" label="Open this select Role" />
-            <option value="1">Admin</option>
-            <option value="2">User</option>
+            <option value={formik.values.Admin}>Admin</option>
+            <option value={formik.values.User}>User</option>
           </Form.Select>
 
           {formik.touched.role && formik.errors.role ? (

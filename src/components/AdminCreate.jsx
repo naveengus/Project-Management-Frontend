@@ -126,32 +126,16 @@ const AdminCreate = () => {
             </Form.Group>
 
             <Form.Group controlId="assignedUsers">
-              <Form.Label>Assigned Users (comma separated user IDs)</Form.Label>
+              <Form.Label>
+                Assigned TeamMembers (Only userIDs, comma separated Each userIDs
+                )
+              </Form.Label>
               <Form.Control
                 type="text"
                 value={assignedUsers}
                 onChange={(e) => setAssignedUsers(e.target.value)}
               />
             </Form.Group>
-
-            <Row className="mt-4">
-              <Col>
-                <Form.Label>Users Details (Users Name & Users IDs)</Form.Label>
-                {users.length > 0 ? (
-                  <ListGroup>
-                    {users.map((user) => (
-                      <ListGroup.Item key={user.userId}>
-                        {user.firstName} {user.lastName} - "{user.userId}"
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
-                ) : (
-                  <ListGroup>
-                    <ListGroup.Item>No user available</ListGroup.Item>
-                  </ListGroup>
-                )}
-              </Col>
-            </Row>
           </Form>
         </div>
         <Button
@@ -170,6 +154,26 @@ const AdminCreate = () => {
         >
           Clear
         </Button>
+        <Row className="mt-4">
+          <Col>
+            <Form.Label>
+              TeamMembers Details (Users Name & Users IDs)
+            </Form.Label>
+            {users.length > 0 ? (
+              <ListGroup>
+                {users.map((user) => (
+                  <ListGroup.Item key={user.userId}>
+                    {user.firstName} {user.lastName} - "{user.userId}"
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            ) : (
+              <ListGroup>
+                <ListGroup.Item>No user available</ListGroup.Item>
+              </ListGroup>
+            )}
+          </Col>
+        </Row>
       </Container>
     </div>
   );
