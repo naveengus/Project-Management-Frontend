@@ -66,15 +66,15 @@ function TopBar() {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary topbox">
+      <Navbar expand="lg" className=" topbox">
         <Container>
           <Navbar.Brand className="brand">
             <Groups3RoundedIcon
               // fontSize="medium"
-              sx={{ fontSize: 30 }}
+              sx={{ fontSize: 32 }}
               className="userlogo"
             />
-            Project-Tracker
+            <label className="brand-head">Project-Tracker</label>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

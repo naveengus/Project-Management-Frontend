@@ -6,6 +6,8 @@ import ApiRoutes from "../utils/ApiRoutes";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useLogOut from "../hooks/useLogout.jsx";
+import Groups3RoundedIcon from "@mui/icons-material/Groups3Rounded";
+import { blue } from "@mui/material/colors";
 
 function Login() {
   let [email, setEmail] = useState("");
@@ -38,7 +40,15 @@ function Login() {
 
   return (
     <div className="container-fluid">
-      <div className="login-wrapper  pt-5">
+      <div className="login-wrapper  pt-3">
+        <div className="logo-name">
+          <Groups3RoundedIcon
+            // fontSize="medium"
+            sx={{ fontSize: 50 }}
+            className="userlogo"
+          />
+          <p>Project-Tracker</p>
+        </div>
         <h1 className="login-head" style={{ textAlign: "center" }}>
           {" "}
           Login{" "}

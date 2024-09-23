@@ -1,7 +1,10 @@
+#full-body {
+  background-color: #c9ccd3;
+}
 .login-wrapper {
   border: 1px solid rgb(148, 142, 142);
   margin: 20% 10%;
-  padding: 20px;
+  padding: 5px 20px;
   background-color: #dee6ec;
   border-radius: 20px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
@@ -18,10 +21,12 @@
     rgb(53, 194, 223) 100%
   );
 }
-
+.topbox {
+  background-color: #f2f2f2;
+}
 Form input {
   border-radius: 15px;
-  background-color: #d1dce6;
+  background-color: #54a0e7;
   color: black;
   border: 1px solid #7695ad;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -30,6 +35,8 @@ Form input {
 .login-head {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 30px;
+  color: #182628;
+  /* text-shadow: 0 0 2px #f00f0f; */
 }
 
 .form-label {
@@ -43,7 +50,7 @@ Form input {
   text-decoration: none;
 }
 .signup-p {
-  height: 630px;
+  height: 700px;
   font-size: medium;
 }
 .full-page {
@@ -51,9 +58,8 @@ Form input {
   font-size: medium;
 }
 
-.table-box {
-  border: 2px sollid rgb(10, 10, 10);
-  margin-top: 50px;
+.table {
+  background-color: #f2f2f2;
 }
 .topbox {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -67,18 +73,26 @@ Form input {
 
 .active {
   color: rgb(20, 20, 20);
-  border-bottom: 5px solid rgb(23, 24, 23);
   margin-bottom: -5px;
+  text-shadow: 0 0 3px #3f4041;
 }
 .brand {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: x-large;
   font-weight: 500;
+  /* text-shadow: 0 0 4px #5a83c5; */
+}
+.brand-head {
+  color: #182628;
 }
 .userlogo {
-  margin-right: 5px;
+  margin-right: 7px;
   margin-top: -8px;
-  color: rgba(17, 17, 17, 0.9);
+  border-radius: 15px;
+  padding: 3px;
+  background-color: #07295f;
+  color: #f3f4f7;
+  /* color: rgba(17, 17, 17, 0.9); */
 }
 .topicon {
   margin-top: -4px;
@@ -88,10 +102,17 @@ Form input {
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  z-index: -1000;
+  z-index: -2000;
+}
+.card-c {
+  z-index: -2000;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .card-wrapper:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.card-body {
+  background-color: rgba(7, 19, 51, 0.7);
 }
 
 .profile {
@@ -115,7 +136,7 @@ Form input {
 .delete-alert {
   max-width: 400px;
   width: 70%;
-  z-index: 1000;
+  z-index: 5000;
 }
 .view-submit {
   border: 2px solid rgb(207, 207, 207, 0.5);
@@ -124,6 +145,7 @@ Form input {
   margin-top: 10px;
   font-family: "Times New Roman", Times, serif;
   font-size: medium;
+  background-color: #f2f2f2;
 }
 .view-submit h5 {
   margin-left: 20px;
@@ -153,8 +175,16 @@ Form input {
 .page-head {
   margin-top: -40px;
 }
-.card-wrapper {
-  background-color: antiquewhite;
+
+.logo-name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+  text-shadow: 0 0 5px #f00f0f;
+  margin-top: 15px;
+}
+.logo-name p {
+  margin-top: 5px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -184,3 +214,5 @@ Form input {
     font-size: small;
   }
 }
+
+/* #6c6fa4 */

@@ -7,6 +7,7 @@ import AxiosServise from "../utils/AxiosServise";
 import ApiRoutes from "../utils/ApiRoutes";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Groups3RoundedIcon from "@mui/icons-material/Groups3Rounded";
 
 function Signup() {
   let navigate = useNavigate();
@@ -51,6 +52,14 @@ function Signup() {
 
   return (
     <div className="login-wrapper  pt-2 signup-p">
+      <div className="logo-name">
+        <Groups3RoundedIcon
+          // fontSize="medium"
+          sx={{ fontSize: 50 }}
+          className="userlogo"
+        />
+        <p>Project-Tracker</p>
+      </div>
       <h1 className="login-head" style={{ textAlign: "center" }}>
         {" "}
         Sign Up{" "}

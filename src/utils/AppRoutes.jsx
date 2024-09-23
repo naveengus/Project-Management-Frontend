@@ -10,6 +10,7 @@ import UserSubmit from "../components/UserSubmit";
 import UserCreate from "../components/UserCreate";
 import ViewProject from "../components/ViewProject";
 import ViweSubmitD from "../components/ViewSubmitD";
+import ViewAllProject from "../components/ViewAllProject";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminGuard from "./AdminGuard";
 export default [
@@ -28,6 +29,17 @@ export default [
         <ProtectedRoute>
           <TopBar />
           <ViewProject />
+        </ProtectedRoute>
+      </>
+    ),
+  },
+  {
+    path: "/ViewAllProject/:projectId",
+    element: (
+      <>
+        <ProtectedRoute>
+          <TopBar />
+          <ViewAllProject />
         </ProtectedRoute>
       </>
     ),

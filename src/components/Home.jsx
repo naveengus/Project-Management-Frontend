@@ -46,8 +46,10 @@ function Home() {
             title={project.projectTitle}
             description={project.description}
             technologies={project.technologies}
+            categeries={project.category}
             name={project.name}
             deadline={project.deadline}
+            projectId={project.projectId}
             key={project.projectId}
           />
         ))}
@@ -60,6 +62,7 @@ function Home() {
             technologies={user.technologies}
             name={user.name}
             deadline={user.deadline}
+            projectId={user.projectId}
             key={user.projectId}
           />
         ))}

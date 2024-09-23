@@ -50,7 +50,6 @@ function ViewSubmitD() {
           ApiRoutes.GET_ALL_PROJECT_ByUSERID.path,
           { authenticate: ApiRoutes.GET_ALL_PROJECT_ByUSERID.auth }
         );
-        // Find the project matching the projectId from useParams
         const project = data.find((project) => project.projectId === projectId);
         if (project) {
           setProjectTitle(project.projectTitle);
