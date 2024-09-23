@@ -46,28 +46,40 @@ function ViewSubmitD() {
     try {
       let response;
       if (role === "Admin") {
-        response = await AxiosServise.get(
-          `${ApiRoutes.GET_PROJECT_ByID.path}/${projectId}`,
-          { authenticate: ApiRoutes.GET_PROJECT_ByID.auth }
+        let { data } = await AxiosServise.get(
+          ApiRoutes.GET_ALL_PROJECT_ByUSERID.path,
+          { authenticate: ApiRoutes.GET_ALL_PROJECT_ByUSERID.auth }
         );
+        // Find the project matching the projectId from useParams
+        const project = data.find((project) => project.projectId === projectId);
+        if (project) {
+          setProjectTitle(project.projectTitle);
+          setDescription(project.description);
+          setTechnologies(project.technologies.join(", "));
+          setSubmittedAt(project.submittedAt);
+          setSubmissionDetails(project.submissionDetails);
+          setStatus(project.status);
+          setDeadline(project.deadline.split("T")[0]);
+        } else {
+          toast.error("Project not found");
+        }
       } else {
         response = await AxiosServise.get(
           `${ApiRoutes.GET_USER_PROJECT_ByID.path}/${projectId}`,
           { authenticate: ApiRoutes.GET_USER_PROJECT_ByID.auth }
         );
-      }
-
-      if (response.data) {
-        const project = response.data;
-        setProjectTitle(project.projectTitle);
-        setDescription(project.description);
-        setTechnologies(project.technologies.join(", "));
-        setSubmittedAt(project.submittedAt);
-        setSubmissionDetails(project.submissionDetails);
-        setStatus(project.status);
-        setDeadline(project.deadline.split("T")[0]);
-      } else {
-        toast.error("Failed to fetch project data");
+        if (response.data) {
+          const project = response.data;
+          setProjectTitle(project.projectTitle);
+          setDescription(project.description);
+          setTechnologies(project.technologies.join(", "));
+          setSubmittedAt(project.submittedAt);
+          setSubmissionDetails(project.submissionDetails);
+          setStatus(project.status);
+          setDeadline(project.deadline.split("T")[0]);
+        } else {
+          toast.error("Failed to fetch project data");
+        }
       }
     } catch (error) {
       toast.error("Error fetching project data");
