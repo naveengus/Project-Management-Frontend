@@ -20,8 +20,8 @@ function ProjectCard({
         <div className="col-12 w-100 ">
           <div
             className="card-wrapper"
-            // onClick={() => navigate(`/ViewAllProject/${projectId}`)}
-            style={{ cursor: "pointer" }} // Optional: cursor pointer for better UX
+            onClick={() => navigate(`/ViewAllProject/${projectId}`)}
+            style={{ cursor: "pointer" }}
           >
             <Card className="card-c">
               <div className="profile-head">

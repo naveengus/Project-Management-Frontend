@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AxiosServise from "../utils/AxiosServise";
 import ApiRoutes from "../utils/ApiRoutes";
 import toast from "react-hot-toast";
@@ -11,6 +11,8 @@ const UserSubmit = () => {
   const [technologies, setTechnologies] = useState([]);
   const [category, setCategory] = useState("");
   const [submissionDetails, setSubmissionDetails] = useState("");
+  const [links, setLinks] = useState([""]);
+
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -21,8 +23,10 @@ const UserSubmit = () => {
         description,
         technologies: technologies.split(",").map((t) => t.trim()),
         category,
-        submissionDetails: "Your submission details here",
+        submissionDetails,
+        ProjectLink: links.filter((link) => link.trim() !== ""),
       };
+
       let response = await AxiosServise.post(
         ApiRoutes.CREATE_SUBMIT.path,
         data,
@@ -35,6 +39,21 @@ const UserSubmit = () => {
     } catch (error) {
       toast.error("Failed to create project!!");
     }
+  };
+
+  const addLinkField = () => {
+    setLinks([...links, ""]);
+  };
+
+  const handleLinkChange = (index, value) => {
+    const newLinks = [...links];
+    newLinks[index] = value;
+    setLinks(newLinks);
+  };
+
+  const removeLinkField = (index) => {
+    const newLinks = links.filter((_, i) => i !== index);
+    setLinks(newLinks);
   };
 
   return (
@@ -83,6 +102,7 @@ const UserSubmit = () => {
                 required
               />
             </Form.Group>
+
             <Form.Group controlId="submissionDetails">
               <Form.Label>Submission Details</Form.Label>
               <Form.Control
@@ -93,24 +113,48 @@ const UserSubmit = () => {
                 required
               />
             </Form.Group>
-          </Form>{" "}
+            <Form.Group>
+              <Form.Label>Project Links</Form.Label>
+              {links.map((link, index) => (
+                <div key={index} className="d-flex mb-2">
+                  <Form.Control
+                    type="url"
+                    value={link}
+                    onChange={(e) => handleLinkChange(index, e.target.value)}
+                    placeholder="Paste a link"
+                    required={index === 0}
+                  />
+                  <Button
+                    variant="danger"
+                    onClick={() => removeLinkField(index)}
+                    className="ml-2 btn-sm"
+                  >
+                    Remove
+                  </Button>
+                </div>
+              ))}
+              <Button
+                variant="success"
+                className=" btn-sm "
+                onClick={addLinkField}
+              >
+                Add Another Link
+              </Button>
+            </Form.Group>
+
+            <Button variant="primary" className="btn-sm mt-3" type="submit">
+              Submit
+            </Button>
+            <Button
+              className="btn-sm mt-3"
+              variant="danger"
+              type="button"
+              onClick={() => window.location.reload()}
+            >
+              Clear
+            </Button>
+          </Form>
         </div>
-        <Button
-          variant="primary"
-          className="btn-sm "
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Submit
-        </Button>
-        <Button
-          className="btn-sm"
-          variant="danger"
-          type="button"
-          onClick={() => window.location.reload()}
-        >
-          Clear
-        </Button>
       </Container>
     </div>
   );

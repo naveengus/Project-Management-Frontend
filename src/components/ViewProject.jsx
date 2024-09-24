@@ -17,6 +17,8 @@ function ViewProject() {
   const [submissionDetails, setSubmissionDetails] = useState("");
   const [submittedAt, setSubmittedAt] = useState("");
   const [status, setStatus] = useState("");
+  const [projectLink, setProjectLink] = useState("");
+  const [links, setLinks] = useState([""]);
 
   let { projectId } = useParams();
   let role = sessionStorage.getItem("role");
@@ -82,12 +84,9 @@ function ViewProject() {
       } else {
         response = await AxiosServise.get(
           `${ApiRoutes.GET_PROJECT_ByID.path}/${projectId}`,
-          {
-            authenticate: ApiRoutes.GET_PROJECT_ByID.auth,
-          }
+          { authenticate: ApiRoutes.GET_PROJECT_ByID.auth }
         );
       }
-
       if (response.data) {
         const project = response.data;
         setProjectTitle(project.projectTitle);
@@ -96,6 +95,11 @@ function ViewProject() {
         setSubmittedAt(project.submittedAt);
         setSubmissionDetails(project.submissionDetails);
         setStatus(project.status);
+        setProjectLink(
+          Array.isArray(project.ProjectLink)
+            ? project.ProjectLink
+            : [project.ProjectLink]
+        );
       } else {
         toast.error("Project not found");
       }
@@ -119,6 +123,7 @@ function ViewProject() {
         technologies: technologies.split(",").map((t) => t.trim()),
         category,
         submissionDetails,
+        ProjectLink: links.filter((link) => link.trim() !== ""),
       };
       let { data } = await AxiosServise.get(
         ApiRoutes.GET_ALL_USER_PROJECT_ByUSERID.path,
@@ -144,6 +149,21 @@ function ViewProject() {
     }
   };
 
+  const addLinkField = () => {
+    setLinks([...links, ""]);
+  };
+
+  const handleLinkChange = (index, value) => {
+    const newLinks = [...links];
+    newLinks[index] = value;
+    setLinks(newLinks);
+  };
+
+  const removeLinkField = (index) => {
+    const newLinks = links.filter((_, i) => i !== index);
+    setLinks(newLinks);
+  };
+
   return (
     <div className="full-page">
       <Container className="view-submit">
@@ -162,6 +182,19 @@ function ViewProject() {
               <p>{submissionDetails}</p>
               <h5>Submitted At</h5>
               <p>{submittedAt}</p>
+              <h5>Project Links</h5>
+              {projectLink && projectLink.length > 0 ? (
+                projectLink.map((link, i) => (
+                  <p key={i}>
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                      {link}
+                    </a>
+                  </p>
+                ))
+              ) : (
+                <p>No project link available</p>
+              )}
+
               <h5>Status</h5>
               <p>
                 <span style={{ color: color[status] }}>{icon[status]}</span>{" "}
@@ -202,6 +235,34 @@ function ViewProject() {
                   onChange={(e) => setSubmissionDetails(e.target.value)}
                   required
                 />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Project Links</Form.Label>
+                {links.map((link, index) => (
+                  <div key={index} className="d-flex mb-2">
+                    <Form.Control
+                      type="url"
+                      value={link}
+                      onChange={(e) => handleLinkChange(index, e.target.value)}
+                      placeholder="Paste a link"
+                      required={index === 0}
+                    />
+                    <Button
+                      variant="danger"
+                      onClick={() => removeLinkField(index)}
+                      className="ml-2 btn-sm"
+                    >
+                      Remove
+                    </Button>
+                  </div>
+                ))}
+                <Button
+                  variant="success"
+                  className=" btn-sm"
+                  onClick={addLinkField}
+                >
+                  Add Another Link
+                </Button>
               </Form.Group>
               <Button className="btn-sm mt-3" variant="primary" type="submit">
                 Submit

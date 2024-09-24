@@ -43,32 +43,32 @@ function ViewAllProject() {
 
   const getData = async () => {
     try {
-      // Fetching project data
       const { data: projects } = await AxiosServise.get(
         ApiRoutes.GET_ALL_PROJECT_ByUSERID.path,
         { authenticate: ApiRoutes.GET_ALL_PROJECT_ByUSERID.auth }
       );
 
       const project = projects.find((proj) => proj.projectId === projectId);
-      if (project) {
-        setProjectTitle(project.projectTitle);
-        setDescription(project.description);
-        setTechnologies(project.technologies.join(", "));
-        setSubmissionDetails(project.submissionDetails);
-        setStatus(project.status);
-      } else {
-        toast.error("Project not found");
-      }
-
-      // Fetching additional user details if needed
       const { data: userData } = await AxiosServise.get(
         ApiRoutes.GET_ALL_APPROVED_USER.path,
         { authenticate: ApiRoutes.GET_ALL_APPROVED_USER.auth }
       );
 
       const userProject = userData.find((proj) => proj.projectId === projectId);
-      if (!userProject) {
-        toast.error("Failed to fetch project details from user data");
+      if (project) {
+        setProjectTitle(project.projectTitle);
+        setDescription(project.description);
+        setTechnologies(project.technologies.join(", "));
+        setSubmissionDetails(project.submissionDetails);
+        setStatus(project.status);
+      } else if (userProject) {
+        setProjectTitle(userProject.projectTitle);
+        setDescription(userProject.description);
+        setTechnologies(userProject.technologies.join(", "));
+        setSubmissionDetails(userProject.submissionDetails);
+        setStatus(userProject.status);
+      } else {
+        toast.error("Project not found");
       }
     } catch (error) {
       toast.error("Error fetching data");

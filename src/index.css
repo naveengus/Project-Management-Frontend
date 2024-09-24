@@ -24,6 +24,15 @@
 .topbox {
   background-color: #f2f2f2;
 }
+.navbar {
+  position: sticky;
+  top: 0;
+}
+.approved-projects {
+  margin-top: 10px;
+  margin-left: 20px;
+  font-family: "Times New Roman", Times, serif;
+}
 Form input {
   border-radius: 15px;
   background-color: #54a0e7;
@@ -98,11 +107,28 @@ Form input {
   margin-top: -4px;
   margin-right: 5px;
 }
+.carosal-box {
+  /* background-color: #07133399; */
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  height: 300px;
+  z-index: -2000;
+}
+.carosal-item {
+  color: #cecaca;
+  text-align: center;
+  margin-top: 100px;
+}
+.carosal-item h3 {
+  color: #faf7f7;
+}
+.home-wrapper {
+  z-index: -2000;
+}
 .card-wrapper {
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  z-index: -2000;
+  z-index: -1000;
 }
 .card-c {
   z-index: -2000;
@@ -188,6 +214,18 @@ Form input {
 }
 
 @media only screen and (max-width: 500px) {
+  .carosal-box {
+    height: 180px;
+  }
+  .carosal-item {
+    color: #cecaca;
+    text-align: center;
+    margin-top: 60px;
+    font-size: xx-small;
+  }
+  .carosal-item h3 {
+    font-size: medium;
+  }
   .table {
     font-size: xx-small;
     height: 80px;

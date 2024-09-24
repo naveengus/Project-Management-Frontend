@@ -3,6 +3,7 @@ import ProjectCard from "./common/ProjectCard";
 import AxiosServise from "../utils/AxiosServise";
 import ApiRoutes from "../utils/ApiRoutes";
 import toast from "react-hot-toast";
+import Carousel from "react-bootstrap/Carousel";
 
 function Home() {
   const [projects, setProjects] = useState([]);
@@ -39,33 +40,54 @@ function Home() {
 
   return (
     <div className="home-wrapper full-page ">
-      <div className="projects">
-        <h2>Approved Projects</h2>
-        {projects.map((project) => (
-          <ProjectCard
-            title={project.projectTitle}
-            description={project.description}
-            technologies={project.technologies}
-            categeries={project.category}
-            name={project.name}
-            deadline={project.deadline}
-            projectId={project.projectId}
-            key={project.projectId}
-          />
-        ))}
-      </div>
-      <div className="projects">
-        {users.map((user) => (
-          <ProjectCard
-            title={user.projectTitle}
-            description={user.description}
-            technologies={user.technologies}
-            name={user.name}
-            deadline={user.deadline}
-            projectId={user.projectId}
-            key={user.projectId}
-          />
-        ))}
+      <div>
+        <Carousel fade className="carosal-box">
+          <Carousel.Item className="carosal-item">
+            <div>
+              {" "}
+              <h3>Project-Management-Tool</h3>
+              <p>Maximize your efficiency with smart task management. </p>
+            </div>
+          </Carousel.Item>
+          <Carousel.Item className="carosal-item">
+            <h3>Project-Management-Tool</h3>
+            <p>Work smarter, not harder—prioritize your tasks effectively.</p>
+          </Carousel.Item>
+          <Carousel.Item className="carosal-item">
+            <h3>Project-Management-Tool</h3>
+            <p>Stay on top of your goals with intelligent task tracking.</p>
+          </Carousel.Item>
+        </Carousel>
+
+        <h2 className="approved-projects">Approved Projects</h2>
+
+        <div className="projects">
+          {projects.map((project) => (
+            <ProjectCard
+              title={project.projectTitle}
+              description={project.description}
+              technologies={project.technologies}
+              categeries={project.category}
+              name={project.name}
+              deadline={project.deadline}
+              projectId={project.projectId}
+              key={project.projectId}
+            />
+          ))}
+        </div>
+        <div className="projects">
+          {users.map((user) => (
+            <ProjectCard
+              title={user.projectTitle}
+              description={user.description}
+              technologies={user.technologies}
+              name={user.name}
+              deadline={user.deadline}
+              projectId={user.projectId}
+              key={user.projectId}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

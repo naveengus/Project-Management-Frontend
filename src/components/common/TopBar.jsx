@@ -55,7 +55,7 @@ function TopBar() {
       role: ["User"],
     },
     {
-      label: "My Blogs",
+      label: "Profile",
       path: "/Profile",
       icon: (
         <ManageAccountsRoundedIcon sx={{ fontSize: 20 }} className="topicon" />
