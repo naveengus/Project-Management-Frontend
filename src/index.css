@@ -21,6 +21,12 @@
     rgb(53, 194, 223) 100%
   );
 }
+.forgot-password {
+  font-size: small;
+  text-decoration: none;
+  margin-bottom: 20px;
+  align-items: center;
+}
 .topbox {
   background-color: #f2f2f2;
 }

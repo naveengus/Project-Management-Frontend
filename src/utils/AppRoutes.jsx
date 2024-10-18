@@ -1,5 +1,7 @@
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import ForgotPassword from "../components/ForgotPassword";
+import ResetPassword from "../components/ResetPassword";
 import Home from "../components/Home";
 import { Navigate } from "react-router-dom";
 import TopBar from "../components/common/TopBar";
@@ -22,6 +24,24 @@ export default [
     path: "/login",
     element: <Login />,
   },
+
+  {
+    path: "/ForgotPassword",
+    element: (
+      <>
+        <ForgotPassword />
+      </>
+    ),
+  },
+  {
+    path: "/ResetPassword",
+    element: (
+      <>
+        <ResetPassword />
+      </>
+    ),
+  },
+
   {
     path: "/ViewProject/:projectId",
     element: (

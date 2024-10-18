@@ -65,7 +65,7 @@ function Login() {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-2" controlId="formBasicPassword">
               <Form.Label className="form-label">Password</Form.Label>
               <Form.Control
                 type="password"
@@ -74,9 +74,22 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
+            <a
+              className="forgot-password mb-2"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+
+                navigate("/ForgotPassword");
+              }}
+            >
+              {" "}
+              Forgot Password?
+            </a>
+            <br></br>
             <Button
               variant="primary"
-              className="btn-submit"
+              className="btn-submit mt-3"
               onClick={handleSubmit}
             >
               Submit

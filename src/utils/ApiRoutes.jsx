@@ -6,6 +6,12 @@ export default {
   SIGNUP: {
     path: "/users/signup ",
   },
+  FORGOTPASSWORD: {
+    path: "/users/forgotPassword ",
+  },
+  RESETPASSWORD: {
+    path: "/users/resetPassword",
+  },
   GET_ALL_USER: {
     path: "/users/getAllUsers",
     auth: true,
