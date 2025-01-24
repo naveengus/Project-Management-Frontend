@@ -128,6 +128,9 @@ Form input {
 .carosal-item h3 {
   color: #faf7f7;
 }
+.pro-card {
+  z-index: -2000;
+}
 .home-wrapper {
   z-index: -2000;
 }

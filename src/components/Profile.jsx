@@ -86,29 +86,6 @@ function Profile() {
 
   return (
     <div className="container">
-      {/* Alert Box */}
-      {show && (
-        <Alert show={show} variant="danger" className="delete-alert">
-          <Alert.Heading>Are you sure you want to delete?</Alert.Heading>
-          <hr />
-          <div className="d-flex justify-content-end">
-            <Button
-              onClick={() => handleDelete(selectedProject)}
-              variant="outline-danger"
-            >
-              Yes
-            </Button>
-            <Button
-              onClick={() => setShow(false)}
-              variant="outline-secondary"
-              className="ml-2"
-            >
-              No
-            </Button>
-          </div>
-        </Alert>
-      )}
-
       {/* Profile Section */}
       <div className="m-4">
         <img src={sampleProfile} className="profile-p" alt="Profile" />
@@ -131,6 +108,30 @@ function Profile() {
         ))}
       </ul>
       <hr className="m-0 "></hr>
+      {/* Alert Box */}
+
+      {show && (
+        <Alert show={show} variant="danger" className="delete-alert ">
+          <Alert.Heading>Are you sure you want to delete?</Alert.Heading>
+          <hr />
+          <div className="d-flex justify-content-end">
+            <Button
+              onClick={() => handleDelete(selectedProject)}
+              variant="outline-danger"
+            >
+              Yes
+            </Button>
+            <Button
+              onClick={() => setShow(false)}
+              variant="outline-secondary"
+              className="ml-2"
+            >
+              No
+            </Button>
+          </div>
+        </Alert>
+      )}
+
       {/* Projects Table */}
       <div className="col-12 w-100 mt-3">
         <Table striped bordered hover>
